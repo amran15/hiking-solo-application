@@ -21,25 +21,25 @@ class SingleTrailPage extends Component {
                             onClick={this.handleClick}
                             alt={this.props.reduxState.name} />
                     </Grid> */}
-                    <pre>
-                        {JSON.stringify(this.props.reduxState, null, 2)}
-                    </pre>
                     <button>Schedule</button>
                     <br />
                     <br />
                     <br />
                     <br />
-                    <MapDisplay />
                     <br />
                     <br />
                     <br />
                 </Grid>
+                <MapDisplay />
+                <pre>
+                    {JSON.stringify(this.props.detailReducer, null, 2)}
+                </pre>
             </div>
         );
     }
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState
+    detailReducer: reduxState.detailReducer
 });
 export default connect(mapReduxStateToProps)(SingleTrailPage);
