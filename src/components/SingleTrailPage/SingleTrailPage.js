@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
 class SingleTrailPage extends Component {
-
-    componentDidMount() {
-        this.props.dispatch({ type: "GET_DETAILS" });
+    handleClick = () => {
+        this.props.history.push('/home');
     }
 
     render() {
@@ -15,31 +14,30 @@ class SingleTrailPage extends Component {
                 <Grid container
                     direction="row"
                     justify="center">
-                    {/* < Grid item xs={6}>
-                        <img
-                            src={this.props.reduxState.image_url}
-                            onClick={this.handleClick}
-                            alt={this.props.reduxState.name} />
-                    </Grid> */}
-                    <button>Schedule</button>
+                    < Grid item xs={6}>
+                            <img src={this.props.singleTrailReducer.image} />
+                    </Grid>
+                    <button onClick={this.handleClick}>Schedule</button>
                     <br />
                     <br />
                     <br />
+                    <Grid item xs={6}>
+                    <p>{this.props.singleTrailReducer.name}</p>
+                    <p>{this.props.singleTrailReducer.address}</p>
+                    <p>{this.props.singleTrailReducer.description}</p>
+                    </Grid>
                     <br />
                     <br />
                     <br />
                     <br />
                 </Grid>
-                <MapDisplay />
-                <pre>
-                    {JSON.stringify(this.props.detailReducer, null, 2)}
-                </pre>
+                {/* <MapDisplay /> */}
             </div>
         );
     }
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    detailReducer: reduxState.detailReducer
+    singleTrailReducer: reduxState.singleTrailReducer
 });
 export default connect(mapReduxStateToProps)(SingleTrailPage);
