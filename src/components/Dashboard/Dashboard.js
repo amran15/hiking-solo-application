@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Dashboard.css';
 
 
 class Dashboard extends Component {
@@ -17,7 +18,7 @@ class Dashboard extends Component {
     return (
       <div>
         {this.props.detailReducer.length !== 0 && this.props.detailReducer.map(trail => {
-          return <div key={trail.id} >{trail.name}
+          return <div className="imageContainer" key={trail.id} >{trail.name}
             <img src={trail.image}
               alt={trail.name}
               onClick={(()=>this.handleClick(trail))}

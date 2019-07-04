@@ -3,16 +3,21 @@ import React, { Component } from 'react';
 
 class confirmHikePage extends Component {
     
-
-    handleClick =() =>{
+    handleConfirm =() =>{
+        this.props.history.push('/home')
+    }
+    
+    handleCancel =() =>{
         this.props.history.push('/detail')
     }
     render(){
         return(
             <div>
-               <input/> 
-               <button onClick={this.handleClick}>Confirm</button>
-               <button onSubmit={this.handleSubmit}>Cancel</button>
+               <input />
+               <br/>
+               <br/>
+               <button onClick={this.handleConfirm}>Confirm</button>
+               <button onClick={this.handleCancel}>Cancel</button>
             </div>
         );
     }

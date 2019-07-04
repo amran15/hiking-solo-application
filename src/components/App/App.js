@@ -13,14 +13,14 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
 import Dashboard from '../Dashboard/Dashboard';
 import InfoPage from '../InfoPage/InfoPage';
 
 import './App.css';
-import SingleTrailPage from '../SingleTrailPage/SingleTrailPage';
 import confirmHikePage from '../ConfirmHikePage/ConfirmHikePage';
-import HikeHistoryPage from '../HikeHistoryPage/HikeHistoryPage';;
+import HikeHistoryPage from '../HikeHistoryPage/HikeHistoryPage';
+import ReviewHikePage from '../ReviewHikePage/ReviewHikePage';
+import SingleTrailPage from '../SingleTrailPage/SingleTrailPage';
 
 class App extends Component {
   componentDidMount () {
@@ -34,11 +34,6 @@ class App extends Component {
           <Nav />
           <Switch>
             <Redirect exact from="/" to="/home" /> 
-            <Route
-              exact
-              path="/about"
-              component={AboutPage}
-            />
             <ProtectedRoute
               exact
               path="/home"
@@ -49,12 +44,14 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
-             <Route exact
+             <ProtectedRoute exact
             path="/confirm" component={confirmHikePage} />
-          <Route exact
-            path="/detail" component={SingleTrailPage} />
-              <Route exact
+                 <ProtectedRoute exact
             path="/history" component={HikeHistoryPage} />
+             <ProtectedRoute exact
+            path="/review" component={ReviewHikePage} />
+          <ProtectedRoute exact
+            path="/detail" component={SingleTrailPage} />
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <Footer />
