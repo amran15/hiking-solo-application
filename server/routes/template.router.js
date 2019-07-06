@@ -33,10 +33,6 @@ router.get('/history', rejectUnauthenticated, (req, res) =>{
         })
 });
 
-router.post('/history', (req, res) =>{
-    console.log('POST REQUEST FOR HISTORY SERVER HIT');
-            res.sendStatus(200)
-});
 
 router.post('/confirm', rejectUnauthenticated, (req, res) => {
     console.log('CONFIRM POST SERVER', req.body)
@@ -47,6 +43,18 @@ router.post('/confirm', rejectUnauthenticated, (req, res) => {
         res.sendStatus(201);
     }).catch(error =>{
         console.log('error making INSERT for post hike', error);
+        res.sendStatus(500);
+    })
+});
+
+router.delete('/delete/:id', (req, res) =>{
+    console.log('POST REQUEST FOR HISTORY SERVER HIT');
+    const queryDelete = `DELETE FROM "review" WHERE "id"=$1`;
+    pool.query(queryDelete, [req.params.id])
+    .then(()=>{
+        res.sendStatus(201);
+    }).catch(error =>{
+        console.log('error making DELETE for hike history', error);
         res.sendStatus(500);
     })
 });

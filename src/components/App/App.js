@@ -32,7 +32,7 @@ class App extends Component {
           <Nav />
           <Switch>
             <Redirect exact from="/" to="/home" />
-            <Route
+            <ProtectedRoute
               exact
               path="/home"
               component={Dashboard}
