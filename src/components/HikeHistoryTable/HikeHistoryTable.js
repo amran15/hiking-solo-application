@@ -15,7 +15,7 @@ class HikeHistoryTable extends Component {
     }
 
     handleDelete = () => {
-        console.log('Delete Button Works')
+        this.props.dispatch({type: 'DELETE_HISTORY', payload: this.props.hike.id })
         console.log(this.props.hike.id)
     }
 
