@@ -3,6 +3,8 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import detailSaga from './detailSaga';
+import confirmSaga from './confirmSaga';
+import historySaga from './historySaga';
 
 
 
@@ -18,7 +20,9 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
-    detailSaga()
+    detailSaga(),
+    confirmSaga(), 
+    historySaga()
   
   ]);
 }

@@ -11,6 +11,10 @@ class ReviewHikePage extends Component {
         this.props.history.push('/detail');
 
      }
+     handleSubmitReview = () => {
+        this.props.history.push('/history');
+
+     }
 
     handleChange = () => {
         this.setState({
@@ -25,7 +29,7 @@ class ReviewHikePage extends Component {
                 <textarea onChange={this.handleChange} value={this.state.review}
                 rows="10" cols="100" />
                 <br/>
-                <button onClick={this.submitReview}>Save</button>
+                <button onClick={this.handleSubmitReview}>Save</button>
                 <br/>
                <button onClick={this.handleCancelClick}>Cancel</button>
             

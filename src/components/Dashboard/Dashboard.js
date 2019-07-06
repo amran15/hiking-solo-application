@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import './Dashboard.css';
 
@@ -17,13 +18,15 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
+      <Grid container id="TrailsGrid" xs={12} justify="center" spacing={4}>
         {this.props.detailReducer.length !== 0 && this.props.detailReducer.map(trail => {
-          return <div className="imageContainer" key={trail.id} >{trail.name}
+          return <Grid item xs={4} className="imageContainer" key={trail.id} >{trail.name}
             <img src={trail.image}
               alt={trail.name}
               onClick={(()=>this.handleClick(trail))}
-            /> </div>
+            /> </Grid>
         })}
+        </Grid>
       </div>
     );
   }
