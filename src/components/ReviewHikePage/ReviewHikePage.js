@@ -53,7 +53,7 @@ class ReviewHikePage extends Component {
 
 
 const mapReduxStateToProps = (reduxState) => ({
-    detailReducer: reduxState.detailReducer
+  reduxState
 })
 
 export default connect(mapReduxStateToProps)(ReviewHikePage);

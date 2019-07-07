@@ -18,6 +18,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+router.put('/review/:id', rejectUnauthenticated, (req, res) => { 
+    console.log('UPDATE REVIEW SERVER HIT');
+    const queryReview=`UPDATE "review" SET "review"=$1 WHERE "review"."id"= $2`;
+    pool.query(queryReview, [req.body.review, req.params.id])
+    .then(result =>{
+        console.log(result);
+        res.sendStatus(200);
+    })
+    .catch(error => {
+        console.log('error making UPDATE for review:', error);
+        res.sendStatus(500);
+    })
+})
+
 router.get('/history', rejectUnauthenticated, (req, res) => {
     console.log('GET HISTORY SERVER HIT');
     const queryHistory = `SELECT "review"."id" AS "review_id", "location"."name", "review".* FROM "review"

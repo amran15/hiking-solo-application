@@ -6,6 +6,7 @@ import detailSaga from './detailSaga';
 import confirmSaga from './confirmSaga';
 import historySaga from './historySaga';
 import deleteSaga from './deleteSaga';
+import reviewSaga from './reviewSaga';
 
 
 
@@ -24,7 +25,8 @@ export default function* rootSaga() {
     detailSaga(),
     confirmSaga(), 
     historySaga(), 
-    deleteSaga()
+    deleteSaga(), 
+    reviewSaga()
   
   ]);
 }
