@@ -17,8 +17,9 @@ class SingleTrailPage extends Component {
     
 
     handleClick =() =>{
-        console.log('takes me back home')
+        console.log('since I am not ')
     }
+
     render() {
         return (
             <div>

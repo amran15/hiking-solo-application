@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 
 
 class HikeHistoryTable extends Component {
+    
+    componentDidMount(){
+        this.props.dispatch({ type: 'GET_DETAILS'});
+    }
 
-    handleDelete = () => {
-        this.props.dispatch({ type: 'DELETE_HISTORY', payload: this.props.hike.id })
+    handleDelete = (hikeId) => {
+        console.log(this.props.hike.id);
+        this.props.dispatch({ type: 'DELETE_HISTORY', payload: {id: hikeId} });
     }
 
     render() {
@@ -20,9 +24,7 @@ class HikeHistoryTable extends Component {
                 <TableCell>{this.props.hike.time}</TableCell>
                 <TableCell>{this.props.hike.review}</TableCell>
                 <TableCell>
-                    <Link to="/home">
-                        <Button size="small" onClick={this.handleDelete}>Delete</Button>
-                    </Link>
+                    <Button size="small" onClick={()=>this.handleDelete(this.props.hike.id)}>Delete</Button>
                 </TableCell>
             </TableRow>
 

@@ -27,20 +27,22 @@ class HikeHistoryPage extends Component {
                     {JSON.stringify(this.props.trailHistoryReducer, null, 2)}
                 </pre> */}
                 <>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Trail Name</TableCell>
-                            <TableCell>Date Visited</TableCell>
-                            <TableCell>Time Visited</TableCell>
-                            <TableCell>Review of Trail</TableCell>
-                            <TableCell>Delete</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-        {this.props.trailHistoryReducer.map((hike, i) => { return <HikeHistoryTable history={this.props.history} key={i} hike={hike} /> })}
-                    </TableBody>
-                </Table> 
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Trail Name</TableCell>
+                                <TableCell>Date Visited</TableCell>
+                                <TableCell>Time Visited</TableCell>
+                                <TableCell>Review of Trail</TableCell>
+                                <TableCell>Delete</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.props.trailHistoryReducer.map((hike, i) => {
+                            return <HikeHistoryTable history={this.props.history} key={i} hike={hike} />
+                            })}
+                        </TableBody>
+                    </Table>
                 </>
             </div>
         );
