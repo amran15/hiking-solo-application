@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 
 class ReviewHikePage extends Component {
@@ -16,22 +17,25 @@ class ReviewHikePage extends Component {
 
      }
 
-    handleChange = () => {
+    handleChange = (event) => {
+        console.log(this.state.review)
         this.setState({
-           review: this.state.review
+            review: event.target.value
         })
 
     }
-
+    
     render() {
         return (
             <div>
-                <textarea onChange={this.handleChange} value={this.state.review}
+                <textarea 
+                onChange={this.handleChange} 
+                value={this.state.review}
                 rows="10" cols="100" />
                 <br/>
-                <button onClick={this.handleSubmitReview}>Save</button>
+                <Button onClick={this.handleSubmitReview}>Save</Button>
                 <br/>
-               <button onClick={this.handleCancelClick}>Cancel</button>
+               <Button onClick={this.handleCancelClick}>Cancel</Button>
             
                 <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
             </div>
