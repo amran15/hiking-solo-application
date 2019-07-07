@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function* postHike(action) {
     try {
-        const getTrailDetails = yield axios.post('/api/template/confirm', action.payload);
-        yield put({ type: 'GET_TRAIL_INFO', payload: getTrailDetails.data })
+        yield axios.post('/api/template/confirm', action.payload);
+        yield put ({ type: 'GET_DETAILS' });
     } catch (error) {
         console.log('error getting trails', error);
     }

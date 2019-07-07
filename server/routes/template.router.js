@@ -52,7 +52,7 @@ router.delete('/delete/:id', (req, res) =>{
     const queryDelete = `DELETE FROM "review" WHERE "id"=$1`;
     pool.query(queryDelete, [req.params.id])
     .then(()=>{
-        res.sendStatus(201);
+        res.sendStatus(200);
     }).catch(error =>{
         console.log('error making DELETE for hike history', error);
         res.sendStatus(500);
