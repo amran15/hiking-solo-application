@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import 
 
 //withstyles-- to use 
 //nest it at the export default withStyles(styles)
