@@ -13,9 +13,8 @@ class ReviewHikePage extends Component {
 
     }
 
-    saveNewReview = () => {
-        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, user_id: this.props.reduxState.user.id, location_id:this.props.reduxState.singleTrailReducer} })
-        console.log(this.props.match.params.id);
+    saveNewReview = (reviewId) => {
+        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: reviewId } })
         this.props.history.push('/history');
     };
     handleChange = (event) => {
