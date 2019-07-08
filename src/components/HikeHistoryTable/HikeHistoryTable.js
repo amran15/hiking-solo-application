@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
+import Swal from 'sweetalert2';
 
 
 class HikeHistoryTable extends Component {
@@ -12,9 +13,26 @@ class HikeHistoryTable extends Component {
     }
 
     handleDelete = (hikeId) => {
-        console.log(this.props.hike.id);
-        this.props.dispatch({ type: 'DELETE_HISTORY', payload: {id: hikeId} });
+        Swal.fire({
+            title: 'Are you sure you want to delete this trail?',
+            text: 'Are you sure you want to delete this?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                this.props.dispatch({ type: 'DELETE_HISTORY', payload: {id: hikeId} });
+                Swal.fire(
+                    'Deleted!',
+                    'Your trail has been deleted!',
+                    'success'
+                )
+            }
+        })
     }
+    
 
     handleReview = () => {
         this.props.history.push({
