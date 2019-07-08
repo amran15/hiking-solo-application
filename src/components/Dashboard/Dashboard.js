@@ -18,7 +18,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Grid container id="TrailsGrid" item xs={12} justify="center" spacing={4}>
+        <div id="bannerHeader">
+          <header>
+            <img id="pictureHeader" width="100%" src="images/SuperiorMinnesota.jpg" alt="Hiking Trail"/>
+       </header>
+        </div>
+        <Grid container id="TrailsGrid" justify="center" spacing={4}>
           {this.props.detailReducer.length && this.props.detailReducer.map(trail => {
             return <Grid item xs={4} className="imageContainer" key={trail.id} >{trail.name}
               <img src={trail.image}

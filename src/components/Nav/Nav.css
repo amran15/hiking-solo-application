@@ -3,6 +3,7 @@
     font-weight: 700;
     display: inline-block;
     color: #f2f2f2;
+    background-color: green;
     padding-left: 10px;
 }
 
@@ -10,7 +11,9 @@
   overflow: hidden;
   background-color: green;
 }
-
+.nav-title:hover{
+  background-color: grey;
+}
 .nav-link {
   float: left;
   color: #f2f2f2;
@@ -28,7 +31,7 @@
 }
 
 .nav-link:hover {
-  background-color: green;
+  background-color: grey;
 }
 
 .nav-right {

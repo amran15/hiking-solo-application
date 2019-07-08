@@ -9,11 +9,11 @@ class ReviewHikePage extends Component {
     }
 
     handleCancelClick = () => {
-        this.props.history.push('/detail');
+        this.props.history.push('/history');
 
     }
 
-    saveNewReview = (reviewId) => {
+    saveNewReview = () => {
         this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: this.props.location.state.id} })
         this.props.history.push('/history');
     };
