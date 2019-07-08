@@ -18,7 +18,10 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <div style="background-image"></div>
+        <div id="imgBanner">
+        <img width="1500" height="800" src="https://wefoundadventure.com/wp-content/uploads/2015/05/P5020629-2000x800.jpg" class="imgBanner" alt/>
+        </div>
+        
         <Grid container id="TrailsGrid" justify="center" spacing={4}>
           {this.props.detailReducer.length && this.props.detailReducer.map(trail => {
             return <Grid item xs={4} className="imageContainer" key={trail.id} >{trail.name}
