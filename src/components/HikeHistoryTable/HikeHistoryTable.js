@@ -17,8 +17,12 @@ class HikeHistoryTable extends Component {
     }
 
     handleReview = () => {
-        console.log(this.props.hike.id);
-        // this.props.history.push('/review');
+        this.props.history.push({
+            pathname: '/review',
+            state: {
+                  id: this.props.hike.id
+             }
+       })
     }
 
 

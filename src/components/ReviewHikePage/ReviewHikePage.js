@@ -14,7 +14,7 @@ class ReviewHikePage extends Component {
     }
 
     saveNewReview = (reviewId) => {
-        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: reviewId } })
+        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: this.props.location.state.id} })
         this.props.history.push('/history');
     };
     handleChange = (event) => {
