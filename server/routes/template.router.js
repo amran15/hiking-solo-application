@@ -32,6 +32,8 @@ router.put('/review/:id', rejectUnauthenticated, (req, res) => {
     })
 })
 
+
+
 router.get('/history', rejectUnauthenticated, (req, res) => {
     console.log('GET HISTORY SERVER HIT');
     const queryHistory = `SELECT "review"."id" AS "review_id", "location"."name", "review".* FROM "review"

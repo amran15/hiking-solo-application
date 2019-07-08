@@ -13,8 +13,8 @@ class ReviewHikePage extends Component {
 
     }
 
-    saveNewReview = (reviewId) => {
-        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: reviewId } })
+    saveNewReview = () => {
+        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, user_id: this.props.reduxState.user.id, location_id:this.props.reduxState.singleTrailReducer} })
         console.log(this.props.match.params.id);
         this.props.history.push('/history');
     };
@@ -39,7 +39,7 @@ class ReviewHikePage extends Component {
                     <Button onClick={this.handleCancelClick}>Cancel</Button>
                     <br />
                 </h2>
-                <pre>{JSON.stringify(this.props.reduxState.detailReducer, null, 2)}</pre>
+                <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
             </div>
         );
     }
