@@ -30,7 +30,7 @@ class HikeHistoryPage extends Component {
                                 <TableCell>Trail Name</TableCell>
                                 <TableCell>Date Visited</TableCell>
                                 <TableCell>Time Visited</TableCell>
-                                <TableCell>Review of Trail</TableCell>
+                                <TableCell>Note</TableCell>
                                 <TableCell>Delete</TableCell>
                             </TableRow>
                         </TableHead>

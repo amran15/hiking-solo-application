@@ -15,7 +15,7 @@
 }
 
 .nav-title:hover{
-  background-color: black;
+  text-decoration: underline;
 }
 .nav-link {
   float: left;
@@ -37,9 +37,4 @@
 
 .nav-right {
   float: right;
-}
-
-
-.amp {
-  font-size: 18px;
 }

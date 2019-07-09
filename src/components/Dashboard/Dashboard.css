@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-img {
+#trailsGrid img {
   border: none;
   overflow: hidden;
   box-shadow: 4px 4px 10px black;

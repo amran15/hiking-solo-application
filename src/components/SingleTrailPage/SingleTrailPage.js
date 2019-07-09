@@ -17,7 +17,7 @@ class SingleTrailPage extends Component {
     
 
     handleClick =() =>{
-        console.log('since I am not ')
+        console.log('')
     }
 
     render() {
@@ -31,8 +31,8 @@ class SingleTrailPage extends Component {
                     <Grid item xs={5} className="detailGrid">
                         <Card elevation={5} className="detailGrid my-10">
                             <CardContent>
-                                <Typography variant="subtitle1">Trail:</Typography>
-                                <Typography noWrap>{this.props.singleTrailReducer.name}</Typography>
+                                <Typography variant="subtitle1"><b>Trail</b></Typography>
+                                <p>{this.props.singleTrailReducer.name}</p>
                                 <p>{this.props.singleTrailReducer.address}</p>
                                 <p>{this.props.singleTrailReducer.description}</p>
                                 <ConfirmHikePage locationId={this.props.singleTrailReducer.id} userId={this.props.reduxState.user.id}/>

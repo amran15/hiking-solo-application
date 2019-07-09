@@ -24,7 +24,7 @@ class Dashboard extends Component {
         <div className="App">
         <br/>
         <br/>
-        <Grid container id="TrailsGrid" justify="center" spacing={4}>
+        <Grid container id="trailsGrid" justify="center" spacing={4}>
           {this.props.detailReducer.length && this.props.detailReducer.map(trail => {
             return <Grid item xs={4} className="imageContainer" key={trail.id}><p>{trail.name}</p>
               <img src={trail.image}
