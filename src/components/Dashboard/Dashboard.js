@@ -19,18 +19,21 @@ class Dashboard extends Component {
     return (
       <div>
         <div id="imgBanner">
-        <img width="1500" src="https://wefoundadventure.com/wp-content/uploads/2015/05/P5020629-2000x800.jpg" class="imgBanner" alt/>
+          <img width="1500" height="500" src="images/FallHikeLoginPic.png" className="imgBanner" alt="" />
         </div>
-        
+        <div className="App">
+        <br/>
+        <br/>
         <Grid container id="TrailsGrid" justify="center" spacing={4}>
           {this.props.detailReducer.length && this.props.detailReducer.map(trail => {
-            return <Grid item xs={4} className="imageContainer" key={trail.id} >{trail.name}
+            return <Grid item xs={4} className="imageContainer" key={trail.id}><p>{trail.name}</p>
               <img src={trail.image}
                 alt={trail.name}
                 onClick={(() => this.handleClick(trail))}
               /> </Grid>
           })}
         </Grid>
+        </div>
       </div>
     );
   }

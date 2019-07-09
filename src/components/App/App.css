@@ -2,6 +2,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
 }
+.App{
+    margin: 50px;
+}
 
 .alert {
     background-color: #ff4545;
@@ -23,7 +26,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: rgb(210, 239, 240);
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;

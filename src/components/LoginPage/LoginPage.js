@@ -6,18 +6,18 @@ import '../LoginPage/LoginPage.css';
 
 
 const styles = {
-    paper: {
-      height: '300px',
-      width: '300px',
-      direction: 'row',
-      marginTop: '70px',
-      marginLeft: '100px',
-      position: 'absolute',
-      top: '8%',
-      left: '55%',
-      transform: 'translate(-50 %, -50 %)',
-    }
+  paper: {
+    height: '300px',
+    width: '300px',
+    direction: 'row',
+    marginTop: '70px',
+    marginLeft: '100px',
+    position: 'absolute',
+    top: '8%',
+    left: '55%',
+    transform: 'translate(-50 %, -50 %)',
   }
+}
 
 class LoginPage extends Component {
   state = {
@@ -69,26 +69,26 @@ class LoginPage extends Component {
         <div>
           <img className="loginImg" src="images/FallHikeLoginPic.png" />
         </div>
-      <Grid container>
-        <Paper 
-          className={this.props.classes.paper} 
-          style={{
-          backgroundColor: 'transparent', 
-          boxShadow: 'none'
-          }}>
-          <center>
-        
-            {this.props.errors.loginMessage && (
-              <h2
-                className="alert"
-                role="alert"
-              >
-                {this.props.errors.loginMessage}
-              </h2>
-            )}
-            <form onSubmit={this.login}>
-              <h1 onClick={this.handleClick}>Login</h1>
-              <div>
+        <Grid container className="loginField" >
+          <Paper
+            className={this.props.classes.paper}
+            style={{
+              backgroundColor: 'transparent',
+              boxShadow: 'none'
+            }}>
+            <center>
+
+              {this.props.errors.loginMessage && (
+                <h2
+                  className="alert"
+                  role="alert"
+                >
+                  {this.props.errors.loginMessage}
+                </h2>
+              )}
+              <form onSubmit={this.login}>
+                <h1 onClick={this.handleClick}>Login</h1>
+                <div>
                   <TextField
                     placeholder="Username"
                     type="text"
@@ -98,8 +98,8 @@ class LoginPage extends Component {
                     value={this.state.username}
                     onChange={this.handleInputChangeFor('username')}
                   />
-              </div>
-              <div>
+                </div>
+                <div>
                   <TextField
                     placeholder="Password"
                     className={this.props.classes.input}
@@ -116,18 +116,18 @@ class LoginPage extends Component {
                     name="submit"
                     value="Log In"
                   />
-              </div>
-            </form>
-            <button
-              type="button"
-              className="link-button"
-              onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-            >
-              Register
+                </div>
+              </form>
+              <button
+                type="button"
+                className="link-button"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+              >
+                Register
             </button>
-          </center>
-        </Paper>
-      </Grid>
+            </center>
+          </Paper>
+        </Grid>
       </div>
     );
   }

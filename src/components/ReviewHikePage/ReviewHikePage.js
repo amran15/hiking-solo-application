@@ -14,7 +14,7 @@ class ReviewHikePage extends Component {
     }
 
     saveNewReview = () => {
-        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: this.props.location.state.id} })
+        this.props.dispatch({ type: 'REVIEW_HIKE', payload: { review: this.state.review, id: this.props.location.state.id } })
         this.props.history.push('/history');
     };
     handleChange = (event) => {
@@ -27,17 +27,15 @@ class ReviewHikePage extends Component {
     render() {
         return (
             <div>
-                <h2>
-                    <textarea
-                        onChange={this.handleChange}
-                        value={this.state.review}
-                        rows="10" cols="100" />
-                    <br />
-                    <Button variant="primary" onClick={this.saveNewReview}>Save</Button>
-                    <br />
-                    <Button onClick={this.handleCancelClick}>Cancel</Button>
-                    <br />
-                </h2>
+                <textarea class=""
+                    onChange={this.handleChange}
+                    value={this.state.review}
+                    rows="10" cols="100" />
+                <br />
+                <Button variant="primary" onClick={this.saveNewReview}>Save</Button>
+                <br />
+                <Button onClick={this.handleCancelClick}>Cancel</Button>
+                <br />
                 {/* <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
             </div>
         );
