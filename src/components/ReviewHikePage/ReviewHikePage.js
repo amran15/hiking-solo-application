@@ -31,14 +31,14 @@ class ReviewHikePage extends Component {
                     <textarea
                         onChange={this.handleChange}
                         value={this.state.review}
-                        rows="10" cols="50" />
+                        rows="10" cols="100" />
                     <br />
-                    <Button onClick={this.saveNewReview}>Save</Button>
+                    <Button variant="primary" onClick={this.saveNewReview}>Save</Button>
                     <br />
                     <Button onClick={this.handleCancelClick}>Cancel</Button>
                     <br />
                 </h2>
-                <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
+                {/* <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
             </div>
         );
     }

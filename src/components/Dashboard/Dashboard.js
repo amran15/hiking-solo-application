@@ -19,7 +19,7 @@ class Dashboard extends Component {
     return (
       <div>
         <div id="imgBanner">
-        <img width="1500" height="800" src="https://wefoundadventure.com/wp-content/uploads/2015/05/P5020629-2000x800.jpg" class="imgBanner" alt/>
+        <img width="1500" src="https://wefoundadventure.com/wp-content/uploads/2015/05/P5020629-2000x800.jpg" class="imgBanner" alt/>
         </div>
         
         <Grid container id="TrailsGrid" justify="center" spacing={4}>

@@ -67,7 +67,7 @@ class LoginPage extends Component {
     return (
       <div className={this.props.classes.main}>
         <div>
-          <img className="loginImg" src="images/BWCA.png" />
+          <img className="loginImg" src="images/FallHikeLoginPic.png" />
         </div>
       <Grid container>
         <Paper 
