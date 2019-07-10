@@ -35,7 +35,7 @@ class SingleTrailPage extends Component {
                                 <p>{this.props.singleTrailReducer.name}</p>
                                 <p>{this.props.singleTrailReducer.address}</p>
                                 <p>{this.props.singleTrailReducer.description}</p>
-                                <ConfirmHikePage locationId={this.props.singleTrailReducer.id} userId={this.props.reduxState.user.id}/>
+                                <ConfirmHikePage  history={this.props.history} locationId={this.props.singleTrailReducer.id} userId={this.props.reduxState.user.id}/>
                                 <Link to="/home">
                                     <Button variant="contained" onClick={this.handleClick} color="primary">Back</Button>
                                 </Link>
