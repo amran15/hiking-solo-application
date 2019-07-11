@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function* updateReviews(action) {
     try {
-        yield axios.put(`/api/template/review/${action.payload.id}`, action.payload);
+        yield axios.put(`/api/trail/review/${action.payload.id}`, action.payload);
         yield put ({ type: 'TRAIL_HISTORY' });
     } catch (error) {
         console.log('error updating reviews', error);
@@ -17,3 +17,4 @@ function* reviewSaga() {
 }
 
 export default reviewSaga;
+//

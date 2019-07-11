@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* getHikeHistory(action) {
     try {
-        const getTrailHistory = yield axios.get('/api/template/history');
+        const getTrailHistory = yield axios.get('/api/trail/history');
         console.log('trail history', getTrailHistory.data);
         yield put({ type: 'TRAIL_HISTORY', payload: getTrailHistory.data })
     } catch (error) {

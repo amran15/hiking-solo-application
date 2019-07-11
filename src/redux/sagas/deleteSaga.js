@@ -4,7 +4,7 @@ import axios from 'axios';
 //const only needed for receiving information back 
 function* deleteHike(action) {
     try {
-       yield axios.delete(`/api/template/delete/${action.payload.id}`);
+       yield axios.delete(`/api/trail/delete/${action.payload.id}`);
        yield put ({ type: 'HIKE_HISTORY' });
     } catch (error) {
         console.log('error deleting hike history', error);

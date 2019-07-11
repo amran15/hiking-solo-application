@@ -50,15 +50,8 @@ class LoginPage extends Component {
 
   handleClick = (event) => {
     this.setState({
-      username: 'koop',
-      password: 'qwerty'
-    })
-  }
-
-  handleLog = (event) => {
-    this.setState({
-      username: '911car',
-      password: 'qwerty'
+      username: 'raney',
+      password: ''
     })
   }
 
@@ -86,7 +79,7 @@ class LoginPage extends Component {
                   {this.props.errors.loginMessage}
                 </h2>
               )}
-              <form onSubmit={this.login}>
+              <form id="loginForm" onSubmit={this.login}>
                 <h1 onClick={this.handleClick}>Login</h1>
                 <div>
                   <TextField

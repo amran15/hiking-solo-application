@@ -18,18 +18,32 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
-router.put('/review/:id', rejectUnauthenticated, (req, res) => { 
+router.get('/search', (req, res) => {
+    console.log('GET TRAIL DETAILS SERVER HIT');
+    const queryText = `SELECT * FROM "location" WHERE "name" ILIKE $1`;
+    pool.query(queryText, [req.query.name])
+        .then(response => {
+            console.log(response);
+            res.send(response.rows);
+        })
+        .catch(error => {
+            console.log('error making SELECT for location name:', error);
+            res.sendStatus(500);
+        })
+});
+
+router.put('/review/:id', rejectUnauthenticated, (req, res) => {
     console.log('UPDATE REVIEW SERVER HIT');
-    const queryReview=`UPDATE "review" SET "review"=$1 WHERE "review"."id"= $2`;
+    const queryReview = `UPDATE "review" SET "review"=$1 WHERE "review"."id"= $2`;
     pool.query(queryReview, [req.body.review, req.params.id])
-    .then(result =>{
-        console.log(result);
-        res.sendStatus(200);
-    })
-    .catch(error => {
-        console.log('error making UPDATE for review:', error);
-        res.sendStatus(500);
-    })
+        .then(result => {
+            console.log(result);
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log('error making UPDATE for review:', error);
+            res.sendStatus(500);
+        })
 })
 
 
