@@ -18,19 +18,19 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
-router.get('/search', (req, res) => {
-    console.log('GET TRAIL DETAILS SERVER HIT');
-    const queryText = `SELECT * FROM "location" WHERE "name" ILIKE $1`;
-    pool.query(queryText, [req.query.name])
-        .then(response => {
-            console.log(response);
-            res.send(response.rows);
-        })
-        .catch(error => {
-            console.log('error making SELECT for location name:', error);
-            res.sendStatus(500);
-        })
-});
+// router.get('/search', (req, res) => {
+//     console.log('GET TRAIL DETAILS SERVER HIT');
+//     const queryText = `SELECT * FROM "location" WHERE "name" ILIKE $1`;
+//     pool.query(queryText, [req.query.name])
+//         .then(response => {
+//             console.log(response);
+//             res.send(response.rows);
+//         })
+//         .catch(error => {
+//             console.log('error making SELECT for location name:', error);
+//             res.sendStatus(500);
+//         })
+// });
 
 router.put('/review/:id', rejectUnauthenticated, (req, res) => {
     console.log('UPDATE REVIEW SERVER HIT');

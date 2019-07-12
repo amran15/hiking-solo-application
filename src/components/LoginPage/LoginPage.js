@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
-import { Paper, Grid, TextField } from '@material-ui/core'
-import '../LoginPage/LoginPage.css';
+import './LoginPage.css';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
+//Material UI
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
 const styles = {
-  paper: {
-    height: '300px',
-    width: '300px',
-    direction: 'row',
-    marginTop: '70px',
-    marginLeft: '100px',
-    position: 'absolute',
-    top: '8%',
-    left: '55%',
-    transform: 'translate(-50 %, -50 %)',
+  title: {
+    textAlign: 'center',
+    fontSize: '20px',
+    marginTop: '150px',
+    color: '#FFF',
+  },
+  button: {
+    marginTop: '15px',
+  },
+  TextField: {
+    borderColor: 'white',
+  },
+  link: {
+    margin: '20px',
   }
-}
+};
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#FFF' },
+  },
+});
 
 class LoginPage extends Component {
   state = {
@@ -36,11 +51,10 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
-      this.props.history.push('/home');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-  } // end login
+  }
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
@@ -48,89 +62,102 @@ class LoginPage extends Component {
     });
   }
 
-  handleClick = (event) => {
-    this.setState({
-      username: 'raney',
-      password: ''
-    })
-  }
-
-
   render() {
     return (
-      <div className={this.props.classes.main}>
-        <div>
-          <img className="loginImg" src="images/FallHikeLoginPic.png" />
-        </div>
-        <Grid container className="loginField" >
-          <Paper
-            className={this.props.classes.paper}
-            style={{
-              backgroundColor: 'transparent',
-              boxShadow: 'none'
-            }}>
-            <center>
-
-              {this.props.errors.loginMessage && (
-                <h2
-                  className="alert"
-                  role="alert"
+      <div className="background">
+        <div className="overlay">
+          <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="xs">
+              <form onSubmit={this.login} noValidate>
+                <div style={styles.title}>
+                  <h1>Login</h1>
+                </div>
+                {this.props.errors.loginMessage && (
+                  <h5
+                    className="alert"
+                    role="alert"
+                  >
+                    {this.props.errors.loginMessage}
+                  </h5>
+                )}
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                  autoFocus
+                  value={this.state.username}
+                  onChange={this.handleInputChangeFor('username')}
+                  style={styles.TextField}
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.6)"
+                  }}
+                  InputProps={{
+                    style: {
+                      color: "black"
+                    }
+                  }}
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  type="password"
+                  id="password"
+                  label="Password"
+                  name="password"
+                  autoComplete="password"
+                  autoFocus
+                  value={this.state.password}
+                  onChange={this.handleInputChangeFor('password')}
+                  color="primary"
+                  style={styles.TextField}
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.6)"
+                  }}
+                  InputProps={{
+                    style: {
+                      color: "black"
+                    }
+                  }}
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="outlined"
+                  style={styles.button}
+                  value="Log In"
+                  color="primary"
                 >
-                  {this.props.errors.loginMessage}
-                </h2>
-              )}
-              <form id="loginForm" onSubmit={this.login}>
-                <h1 onClick={this.handleClick}>Login</h1>
-                <div>
-                  <TextField
-                    placeholder="Username"
-                    type="text"
-                    variant="outlined"
-                    margin="dense"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.handleInputChangeFor('username')}
-                  />
-                </div>
-                <div>
-                  <TextField
-                    placeholder="Password"
-                    className={this.props.classes.input}
-                    type="password"
-                    variant="outlined"
-                    margin="dense"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.handleInputChangeFor('password')}
-                  />
-                  <input
-                    className="log-in"
-                    type="submit"
-                    name="submit"
-                    value="Log In"
-                  />
-                </div>
+                  Sign In
+          </Button>
               </form>
-              <button
-                type="button"
-                className="link-button"
-                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
-              >
-                Register
-            </button>
-            </center>
-          </Paper>
-        </Grid>
+              <center style={styles.link}>
+                <Link
+                  component="button"
+                  variant="body2"
+                  fullWidth
+                  variant="outlined"
+                  onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+                >
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </center>
+            </Container>
+          </ThemeProvider>
+        </div>
       </div>
     );
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default withStyles(styles)(connect(mapStateToProps)(LoginPage));
+export default connect(mapStateToProps)(LoginPage);

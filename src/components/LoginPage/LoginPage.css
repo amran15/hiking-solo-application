@@ -1,20 +1,18 @@
-.loginImg {
-    margin: 10px auto;
-    margin-top: 50px;
+.background {
+  background-image: url("../Images/FallHikeLoginPic.png");
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.loginField{
-    opacity: 0.6;
-    margin: 0px 0.5px auto;
-}
-
-#loginForm{
-    width: 50%;
-    margin: 50px;
-    padding: 35px;
-    margin-top: 2.3em;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    margin-bottom: 20px;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
