@@ -36,7 +36,9 @@
   margin-left: calc(50vw - (45vw / 2 + 25px));
   opacity: 0.7;
 }
-
+.pTag {
+  text-align: center;
+}
 .searchInput input {
   width: 45vw;
   padding: 5px;

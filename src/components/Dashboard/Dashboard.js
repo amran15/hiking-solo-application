@@ -50,6 +50,7 @@ class Dashboard extends Component {
           <input onChange={this.handleChange} />
           <Button onClick={this.searchHikes}>Search</Button>
         </div>
+        <p className="pTag"><b>Below are a list of clickable trails you can search before scheduling your upcoming hike</b></p>
         <div className="App">
           <br />
           <br />
